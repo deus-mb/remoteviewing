@@ -98,6 +98,10 @@ namespace RemoteViewing.Windows.Forms.Server
 
             if (this.bitmap == null || this.bitmap.Width != w || this.bitmap.Height != h)
             {
+                // Dispose previous resources to avoid leaking GDI handles.
+                this.bitmap?.Dispose();
+                (this.framebuffer as IDisposable)?.Dispose();
+
                 this.bitmap = new Bitmap(w, h);
                 this.framebuffer = new VncFramebuffer(this.name, w, h, new VncPixelFormat());
             }
