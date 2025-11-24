@@ -4,6 +4,7 @@ on:
     branches:
       - master
   pull_request:
+  workflow_dispatch:
 
 env:
   LIBVNC_VERSION: "0.9.13"
