@@ -22,7 +22,7 @@ jobs:
           triplet: x64-windows
     runs-on: windows-2022
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: dotnet/nbgv@v0.4.0
@@ -74,7 +74,7 @@ jobs:
           copy Release\*.* ${{ github.workspace }}\libvnc\${{ matrix.rid }}
         working-directory: '${{ github.workspace }}/RemoteViewing.LibVnc.Logging'
       - name: Upload libvnc artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: libvnc-${{ github.run_id }}
           path: |
