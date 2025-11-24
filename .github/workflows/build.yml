@@ -34,12 +34,12 @@ jobs:
           git clone --branch LibVNCServer-${{ env.LIBVNC_VERSION }} --depth 1 https://github.com/LibVNC/libvncserver/
           git show
       - name: Cache vcpkg downloads
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: C:/vcpkg/downloads
           key: vcpkg_downloads | ${{ matrix.triplet }}
       - name: Cache vcpkg installed
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: C:/vcpkg/installed
           key: vcpkg_downloads | ${{ matrix.triplet }}
